@@ -1,13 +1,17 @@
 import express from 'express';
-import routes from './routers';
+import userRouters from './routers/user.router';
+
+const PORT = 3000;
 
 const app = express();
 
 app.use(express.json());
-app.use(routes);
+app.use(userRouters);
 
 app.get('/', (request, response) => {
-    return response.json('Server running !');
+    return response.json(`server is running ${PORT}`);
 });
 
-app.listen(3000);
+console.log(`server is running ${PORT}`)
+
+app.listen(PORT);
